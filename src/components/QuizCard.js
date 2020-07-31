@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "@reach/router";
 
-import questions from "../Questions/JSQuestions";
+import { questions } from "../Questions/JSQuestions";
 
 const QuizCard = (props) => {
   const [index, setIndex] = useState(0);
@@ -17,7 +17,7 @@ const QuizCard = (props) => {
     props.setAnswers(newAnswers);
   };
 
-  const { id, q, a1, a2, a3, a4, correct } = questions[index];
+  const { id, q, a1, a2, a3, a4 } = questions[index];
   return (
     <div className="ui container">
       <h1>Card</h1>
@@ -26,29 +26,29 @@ const QuizCard = (props) => {
 
       <input
         type="radio"
-        checked={answer === "1"}
-        onClick={() => answerChange("1")}
+        checked={answer === 1}
+        onClick={() => answerChange(1)}
       />
       <label>{a1}</label>
 
       <input
         type="radio"
-        checked={answer === "2"}
-        onClick={() => answerChange("2")}
+        checked={answer === 2}
+        onClick={() => answerChange(2)}
       />
       <label>{a2}</label>
 
       <input
         type="radio"
-        checked={answer === "3"}
-        onClick={() => answerChange("3")}
+        checked={answer === 3}
+        onClick={() => answerChange(3)}
       />
       <label>{a3}</label>
 
       <input
         type="radio"
-        checked={answer === "4"}
-        onClick={() => answerChange("4")}
+        checked={answer === 4}
+        onClick={() => answerChange(4)}
       />
       <label>{a4}</label>
 

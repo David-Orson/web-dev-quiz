@@ -1,4 +1,4 @@
-const Questions = [
+export const questions = [
   {
     id: 1,
     q: "question",
@@ -6,7 +6,6 @@ const Questions = [
     a2: "a2",
     a3: "a3",
     a4: "a4",
-    correct: "a2",
   },
   {
     id: 2,
@@ -15,8 +14,7 @@ const Questions = [
     a2: "b2",
     a3: "b3",
     a4: "b4",
-    correct: "b4",
   },
 ];
 
-export default Questions;
+export const correct = [1, 3];
