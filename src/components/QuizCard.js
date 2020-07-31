@@ -67,10 +67,6 @@ const QuizCard = (props) => {
           Finish
         </Link>
       )}
-
-      <Link className="ui button" to="/">
-        Home
-      </Link>
     </div>
   );
 };

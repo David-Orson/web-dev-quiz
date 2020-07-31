@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 import { questions, correct } from "../Questions/JSQuestions";
 
@@ -27,6 +28,13 @@ const Result = (props) => {
     <div className="ui container">
       <h1>Result</h1>
       <p>Your Score is {score}</p>
+
+      <Link className="ui button" to="/quiz" onClick={props.resetAnswers}>
+        Try again?
+      </Link>
+      <Link className="ui button" to="/">
+        Home
+      </Link>
     </div>
   );
 };
