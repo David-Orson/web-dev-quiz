@@ -5,12 +5,14 @@ import QuizCard from "../components/QuizCard";
 
 const Quiz = (props) => {
   return (
-    <div className="ui container">
-      <h1>Quiz</h1>
+    <div className="ui raised very padded text container segment">
       <QuizCard answers={props.answers} setAnswers={props.setAnswers} />
-      <Link className="ui button" to="/">
-        Home
-      </Link>
+      <br />
+      <div className="ui container">
+        <Link className="ui button basic blue" to="/">
+          Home
+        </Link>
+      </div>
     </div>
   );
 };

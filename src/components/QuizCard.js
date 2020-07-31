@@ -20,8 +20,6 @@ const QuizCard = (props) => {
   const { id, q, a1, a2, a3, a4 } = questions[index];
   return (
     <div className="ui container">
-      <h1>Card</h1>
-
       <h3>{q}</h3>
 
       <input
@@ -52,18 +50,25 @@ const QuizCard = (props) => {
       />
       <label>{a4}</label>
       <br />
+      <br />
       {index > 0 ? (
-        <button className="ui button" onClick={() => setIndex(index - 1)}>
+        <button
+          className="ui button yellow basic"
+          onClick={() => setIndex(index - 1)}
+        >
           Back
         </button>
       ) : null}
 
       {index < questions.length - 1 ? (
-        <button className="ui button" onClick={() => setIndex(index + 1)}>
+        <button
+          className="ui button yellow"
+          onClick={() => setIndex(index + 1)}
+        >
           Next
         </button>
       ) : (
-        <Link className="ui button" to="/result">
+        <Link className="ui button green" to="/result">
           Finish
         </Link>
       )}

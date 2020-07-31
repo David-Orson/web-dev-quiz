@@ -4,8 +4,7 @@ import { Link } from "@reach/router";
 const Home = () => {
   return (
     <div className="ui container">
-      <h1>Code Quizzer</h1>
-      <Link to="/quiz" className="ui button">
+      <Link to="/quiz" className="ui button yellow">
         Start
       </Link>
     </div>

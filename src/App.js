@@ -24,7 +24,13 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="ui container">
+      <h1>Code Quizzer</h1>
+      <h3>Welcome to Code Quizzer!</h3>
+      <p>
+        This is a JavaScript quiz for beginners! Passing Score is 8/10 and the
+        answers are multiple choice. Enjoy!{" "}
+      </p>
       <Router>
         <Home path="/" />
         <Quiz path="/quiz" answers={answers} setAnswers={setAnswers} />

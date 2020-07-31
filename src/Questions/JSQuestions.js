@@ -10,10 +10,10 @@ export const questions = [
   {
     id: 2,
     q:
-      "What is the correct JavaScript syntax to change the content of the HTML element: <p id='demo'>This is a demonstration.</p>?",
-    a1: "document.getElement('p').innerHTML = 'Hello World!'",
-    a2: "document.getElementById('demo').innerHTML= 'Hello World!'",
-    a3: "document.getElementByName('p').innerHTML = 'Hello World!'",
+      "What is the correct JavaScript syntax to change the content of the HTML element: <p id='demo'>This is a demonstration.</p>? document.get:",
+    a1: "Element('p').innerHTML = 'Hello World!'",
+    a2: "ElementById('demo').innerHTML= 'Hello World!'",
+    a3: "ElementByName('p').innerHTML = 'Hello World!'",
     a4: "#demo.innerHTML = 'Hello World!'",
   },
   {

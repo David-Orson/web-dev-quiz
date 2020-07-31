@@ -25,7 +25,7 @@ const Result = (props) => {
   console.log(score);
 
   return (
-    <div className="ui container">
+    <div className="ui raised very padded text container segment">
       <h1>Result</h1>
       <p>Your Score is {score}</p>
 
@@ -43,10 +43,14 @@ const Result = (props) => {
         <p>Better luck next time! Study more.</p>
       )}
 
-      <Link className="ui button" to="/quiz" onClick={props.resetAnswers}>
+      <Link
+        className="ui button basic yellow"
+        to="/quiz"
+        onClick={props.resetAnswers}
+      >
         Try again?
       </Link>
-      <Link className="ui button" to="/">
+      <Link className="ui button basic blue" to="/">
         Home
       </Link>
     </div>
