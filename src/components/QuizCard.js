@@ -3,13 +3,15 @@ import { Link } from "@reach/router";
 
 import { questions } from "../Questions/JSQuestions";
 
+import AnswerSelector from "./AnswerSelector";
+
 const QuizCard = (props) => {
   const [index, setIndex] = useState(0);
 
-  const answer = props.answers[index];
+  const userAnswer = props.userAnswers[index];
 
   const answerChange = (value) => {
-    let newAnswers = [...props.answers];
+    let newAnswers = [...props.userAnswers];
     newAnswers[index] = value;
 
     console.log(newAnswers);
@@ -17,38 +19,24 @@ const QuizCard = (props) => {
     props.setAnswers(newAnswers);
   };
 
-  const { id, q, a1, a2, a3, a4 } = questions[index];
+  const { id, q, questionAnswers } = questions[index];
+
+  const answerArray = Object.values(questionAnswers);
+
+  const answerMarkup = answerArray.map((correctAnswer, answerSelectorIndex) => (
+    <AnswerSelector
+      correctAnswer={correctAnswer}
+      userAnswer={userAnswer}
+      answerChange={answerChange}
+      key={answerSelectorIndex}
+      index={answerSelectorIndex}
+    />
+  ));
+
   return (
     <div className="ui container">
       <h3>{q}</h3>
-
-      <input
-        type="radio"
-        checked={answer === 1}
-        onClick={() => answerChange(1)}
-      />
-      <label>{a1}</label>
-      <br />
-      <input
-        type="radio"
-        checked={answer === 2}
-        onClick={() => answerChange(2)}
-      />
-      <label>{a2}</label>
-      <br />
-      <input
-        type="radio"
-        checked={answer === 3}
-        onClick={() => answerChange(3)}
-      />
-      <label>{a3}</label>
-      <br />
-      <input
-        type="radio"
-        checked={answer === 4}
-        onClick={() => answerChange(4)}
-      />
-      <label>{a4}</label>
+      {answerMarkup}
       <br />
       <br />
       {index > 0 ? (

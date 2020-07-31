@@ -6,7 +6,7 @@ import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 
 const App = () => {
-  const [answers, setAnswers] = useState([
+  const [userAnswers, setAnswers] = useState([
     null,
     null,
     null,
@@ -26,15 +26,15 @@ const App = () => {
   return (
     <div className="ui container">
       <h1>Code Quizzer</h1>
-      <h3>Welcome to Code Quizzer!</h3>
-      <p>
-        This is a JavaScript quiz for beginners! Passing Score is 8/10 and the
-        answers are multiple choice. Enjoy!{" "}
-      </p>
+
       <Router>
         <Home path="/" />
-        <Quiz path="/quiz" answers={answers} setAnswers={setAnswers} />
-        <Result path="/result" answers={answers} resetAnswers={resetAnswers} />
+        <Quiz path="/quiz" userAnswers={userAnswers} setAnswers={setAnswers} />
+        <Result
+          path="/result"
+          userAnswers={userAnswers}
+          resetAnswers={resetAnswers}
+        />
       </Router>
     </div>
   );

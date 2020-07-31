@@ -6,7 +6,7 @@ import QuizCard from "../components/QuizCard";
 const Quiz = (props) => {
   return (
     <div className="ui raised very padded text container segment">
-      <QuizCard answers={props.answers} setAnswers={props.setAnswers} />
+      <QuizCard userAnswers={props.userAnswers} setAnswers={props.setAnswers} />
       <br />
       <div className="ui container">
         <Link className="ui button basic blue" to="/">

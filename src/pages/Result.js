@@ -6,7 +6,7 @@ import { questions, correct } from "../Questions/JSQuestions";
 const Result = (props) => {
   let marked = [];
   let index = 0;
-  props.answers.forEach((answer) => {
+  props.userAnswers.forEach((answer) => {
     if (answer === correct[index]) {
       marked.push(1);
       index++;
