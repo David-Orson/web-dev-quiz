@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 const Home = () => {
   return (
     <div className="ui container">
       <h1>Code Quizzer</h1>
-      <button class="ui button">Start</button>
+      <Link to="/quiz" class="ui button">
+        Start
+      </Link>
     </div>
   );
 };
