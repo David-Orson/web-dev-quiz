@@ -4,8 +4,19 @@ import { Link } from "@reach/router";
 import questions from "../Questions/JSQuestions";
 
 const QuizCard = () => {
-  const [answer, setAnswer] = useState("a1");
+  const [answers, setAnswers] = useState(["a1", "a2"]);
   const [index, setIndex] = useState(0);
+
+  const answer = answers[index];
+
+  const answerChange = (value) => {
+    let tempAnswers = [...answers];
+    tempAnswers[index] = value;
+
+    console.log(tempAnswers);
+
+    setAnswers(tempAnswers);
+  };
 
   const { id, q, a1, a2, a3, a4, correct } = questions[index];
   return (
@@ -17,28 +28,28 @@ const QuizCard = () => {
       <input
         type="radio"
         checked={answer === "a1"}
-        onClick={() => setAnswer("a1")}
+        onClick={() => answerChange("a1")}
       />
       <label>{a1}</label>
 
       <input
         type="radio"
         checked={answer === "a2"}
-        onClick={() => setAnswer("a2")}
+        onClick={() => answerChange("a2")}
       />
       <label>{a2}</label>
 
       <input
         type="radio"
         checked={answer === "a3"}
-        onClick={() => setAnswer("a3")}
+        onClick={() => answerChange("a3")}
       />
       <label>{a3}</label>
 
       <input
         type="radio"
         checked={answer === "a4"}
-        onClick={() => setAnswer("a4")}
+        onClick={() => answerChange("a4")}
       />
       <label>{a4}</label>
 
