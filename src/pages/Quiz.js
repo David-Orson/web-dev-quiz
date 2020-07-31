@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import QuizCard from "../components/QuizCard";
 
-const Quiz = () => {
+const Quiz = (props) => {
   return (
     <div className="ui container">
       <h1>Quiz</h1>
-      <QuizCard />
+      <QuizCard answers={props.answers} setAnswers={props.setAnswers} />
     </div>
   );
 };
