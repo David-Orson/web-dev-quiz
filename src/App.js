@@ -6,10 +6,21 @@ import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 
 const App = () => {
-  const [answers, setAnswers] = useState([null, null]);
+  const [answers, setAnswers] = useState([
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ]);
 
   const resetAnswers = () => {
-    setAnswers([null, null]);
+    setAnswers([null, null, null, null, null, null, null, null, null, null]);
   };
 
   return (

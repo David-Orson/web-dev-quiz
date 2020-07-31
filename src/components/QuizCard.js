@@ -30,28 +30,28 @@ const QuizCard = (props) => {
         onClick={() => answerChange(1)}
       />
       <label>{a1}</label>
-
+      <br />
       <input
         type="radio"
         checked={answer === 2}
         onClick={() => answerChange(2)}
       />
       <label>{a2}</label>
-
+      <br />
       <input
         type="radio"
         checked={answer === 3}
         onClick={() => answerChange(3)}
       />
       <label>{a3}</label>
-
+      <br />
       <input
         type="radio"
         checked={answer === 4}
         onClick={() => answerChange(4)}
       />
       <label>{a4}</label>
-
+      <br />
       {index > 0 ? (
         <button className="ui button" onClick={() => setIndex(index - 1)}>
           Back

@@ -16,9 +16,9 @@ const Result = (props) => {
     }
   });
 
-  const score = `${marked.reduce((total, num) => total + num)} / ${
-    questions.length
-  }`;
+  const answeredCorrectly = marked.reduce((total, num) => total + num);
+
+  const score = `${answeredCorrectly} / ${questions.length}`;
 
   console.log(marked);
 
@@ -28,6 +28,20 @@ const Result = (props) => {
     <div className="ui container">
       <h1>Result</h1>
       <p>Your Score is {score}</p>
+
+      {answeredCorrectly > 2 ? (
+        answeredCorrectly > 5 ? (
+          answeredCorrectly > 8 ? (
+            <p>Great Job ! You nailed the quiz!</p>
+          ) : (
+            <p>You did well! study more to improve.</p>
+          )
+        ) : (
+          <p>Nice try, study more to improve!</p>
+        )
+      ) : (
+        <p>Better luck next time! Study more.</p>
+      )}
 
       <Link className="ui button" to="/quiz" onClick={props.resetAnswers}>
         Try again?
