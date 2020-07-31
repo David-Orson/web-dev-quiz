@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "@reach/router";
 
-import Questions from "../Questions/JSQuestions";
+import questions from "../Questions/JSQuestions";
 
 const QuizCard = () => {
   const [answer, setAnswer] = useState("a1");
   const [index, setIndex] = useState(0);
 
-  const { id, q, a1, a2, a3, a4, correct } = Questions[index];
+  const { id, q, a1, a2, a3, a4, correct } = questions[index];
   return (
     <div className="ui container">
       <h1>Card</h1>
@@ -41,9 +42,25 @@ const QuizCard = () => {
       />
       <label>{a4}</label>
 
-      <button className="ui button" onClick={() => setIndex(index + 1)}>
-        Next
-      </button>
+      {index > 0 ? (
+        <button className="ui button" onClick={() => setIndex(index - 1)}>
+          Back
+        </button>
+      ) : null}
+
+      {index < questions.length - 1 ? (
+        <button className="ui button" onClick={() => setIndex(index + 1)}>
+          Next
+        </button>
+      ) : (
+        <Link className="ui button" to="/result">
+          Finish
+        </Link>
+      )}
+
+      <Link className="ui button" to="/">
+        Home
+      </Link>
     </div>
   );
 };
