@@ -5,7 +5,11 @@ const firebaseConfig = require("../utility/firebaseConfig");
 const firebase = require("firebase");
 firebase.initializeApp(firebaseConfig);
 
-const { validateSignupData } = require("../utility/validators");
+const {
+  validateSignupData,
+  validateLoginData,
+} = require("../utility/validators");
+const { database } = require("firebase-admin");
 
 exports.signup = async (req, res) => {
   try {
@@ -56,5 +60,33 @@ exports.signup = async (req, res) => {
         .status(500)
         .json({ general: "Something went wrong, please try again" });
     }
+  }
+};
+
+exports.login = async (req, res) => {
+  try {
+    const user = {
+      email: req.body.email,
+      password: req.body.password,
+    };
+
+    const { valid, errors } = validateLoginData(user);
+
+    if (!valid) return res.status(400).json(errors);
+
+    const creds = await firebase
+      .auth()
+      .signInWithEmailAndPassword(user.email, user.password);
+
+    const token = await creds.user.getIdToken();
+
+    if (token) {
+      return res.status(200).json({ token });
+    }
+  } catch (err) {
+    console.error(err);
+    return res
+      .status(403)
+      .json({ general: "Wrong credentials, please try again" });
   }
 };
