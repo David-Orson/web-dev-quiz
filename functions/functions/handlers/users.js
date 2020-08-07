@@ -23,15 +23,15 @@ exports.signup = async (req, res) => {
     let token, userId;
     const doc = await db.doc(`/users/${newUser.handle}`).get();
 
-    const data = doc.exists
+    const creds = doc.exists
       ? res.status(400).json({ handle: "This username is unavailable" })
       : await firebase
           .auth()
           .createUserWithEmailAndPassword(newUser.email, newUser.password);
 
-    userId = data.user.uid;
+    userId = creds.user.uid;
 
-    const idToken = await data.user.getIdToken();
+    const idToken = await creds.user.getIdToken();
 
     token = idToken;
 
