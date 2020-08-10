@@ -1,6 +1,8 @@
+import { LOGIN } from "../types";
+
 const authReducer = (state, action) => {
   switch (action.type) {
-    case "LOGIN":
+    case LOGIN:
       return { ...state, handle: action.handle };
     case "LOGOUT":
       return { ...state, handle: false };
