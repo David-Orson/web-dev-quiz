@@ -105,3 +105,19 @@ exports.getAuthenticatedUser = async (req, res) => {
     return res.status(500).json({ error: err.code });
   }
 };
+
+exports.userPassedTest = async (req, res) => {
+  try {
+    const newPass = {
+      userHandle: req.user.handle,
+      createdAt: new Date().toISOString(),
+    };
+    db.doc(`/js1/${req.user.handle}`).set(newPass);
+    res.json(newPass);
+  } catch (err) {
+    console.error(err);
+    return res
+      .status(500)
+      .json({ general: "Something went wrong, please try again" });
+  }
+};
