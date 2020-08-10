@@ -1,4 +1,4 @@
-import { LOGIN } from "../types";
+import { LOGIN, SET_USER } from "../types";
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -6,6 +6,9 @@ const authReducer = (state, action) => {
       return { ...state, handle: action.handle };
     case "LOGOUT":
       return { ...state, handle: false };
+    case SET_USER:
+      console.log(action.payload);
+      return { ...state, handle: action.payload.credentials.handle };
     default:
       return state;
   }

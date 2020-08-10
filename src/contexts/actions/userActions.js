@@ -1,13 +1,18 @@
-import { LOGIN } from "../types";
+import { SET_USER } from "../types";
 
 import axios from "axios";
 
 export const loginUser = async (dispatch, email, password) => {
-  const user = await axios.get(
-    "https://europe-west1-code-quizzer.cloudfunctions.net/api/login"
+  const res = await axios.post(
+    "https://europe-west1-code-quizzer.cloudfunctions.net/api/login",
+    {
+      email: "cool@cool.com",
+      password: "test1234",
+    }
   );
+  setAuthorizationHeader(res.data.token);
 
-  dispatch(getUserData());
+  dispatch(getUserData(dispatch));
 };
 
 export const getUserData = async (dispatch) => {
@@ -19,4 +24,10 @@ export const getUserData = async (dispatch) => {
     type: SET_USER,
     payload: userDetails.data,
   });
+};
+
+const setAuthorizationHeader = (token) => {
+  const FBIdToken = `Bearer ${token}`;
+  localStorage.setItem("FBIdToken", FBIdToken);
+  axios.defaults.headers.common["Authorization"] = FBIdToken;
 };
