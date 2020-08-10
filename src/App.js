@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 
@@ -33,6 +34,7 @@ const App = () => {
       <Router>
         <Home path="/" />
         <Login path="/login" />
+        <Signup path="signup" />
         <Quiz path="/quiz" userAnswers={userAnswers} setAnswers={setAnswers} />
         <Result
           path="/result"

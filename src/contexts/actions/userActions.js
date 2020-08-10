@@ -6,8 +6,8 @@ export const loginUser = async (dispatch, email, password) => {
   const res = await axios.post(
     "https://europe-west1-code-quizzer.cloudfunctions.net/api/login",
     {
-      email: "cool@cool.com",
-      password: "test1234",
+      email: email,
+      password: password,
     }
   );
   setAuthorizationHeader(res.data.token);

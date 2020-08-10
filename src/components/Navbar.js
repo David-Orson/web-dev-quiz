@@ -10,6 +10,9 @@ function Navbar() {
       <Link to="/login" className="ui button basic yellow">
         Login
       </Link>
+      <Link to="signup" className="ui button basic yellow">
+        Signup
+      </Link>
     </div>
   );
 }
