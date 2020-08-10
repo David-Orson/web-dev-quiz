@@ -6,7 +6,7 @@ import { loginUser } from "../contexts/actions/userActions";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user, dispatch } = useContext(UserContext);
+  const { dispatch } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -20,6 +20,10 @@ const Result = (props) => {
 
   const score = `${answeredCorrectly} / ${questions.length}`;
 
+  if (answeredCorrectly >= 8) {
+    console.log("dispatch");
+  }
+
   console.log(marked);
 
   console.log(score);

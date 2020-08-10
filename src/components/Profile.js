@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 
 import { UserContext } from "../contexts/UserContext";
-import { LOGIN } from "../contexts/types";
 import { loginUser } from "../contexts/actions/userActions";
 
 function Profile() {

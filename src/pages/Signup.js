@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 
 import { UserContext } from "../contexts/UserContext";
-import { loginUser, signupUser } from "../contexts/actions/userActions";
+import { signupUser } from "../contexts/actions/userActions";
 
 function Signup() {
   const [handle, setHandle] = useState("");
@@ -9,7 +9,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const { user, dispatch } = useContext(UserContext);
+  const { dispatch } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
