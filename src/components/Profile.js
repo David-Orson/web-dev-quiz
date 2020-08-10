@@ -4,10 +4,14 @@ import { UserContext } from "../contexts/UserContext";
 import { loginUser } from "../contexts/actions/userActions";
 
 function Profile() {
-  const { user, dispatch } = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
   return (
     <div className="ui raised very padded text  segment">
-      {user.handle ? <p>Hi {user.handle}</p> : <p>Login please</p>}
+      {state.credentials.handle ? (
+        <p>Hi {state.handle}</p>
+      ) : (
+        <p>Login please</p>
+      )}
       <button onClick={() => loginUser(dispatch)}>Login</button>
     </div>
   );

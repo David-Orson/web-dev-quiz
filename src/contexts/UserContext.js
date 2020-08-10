@@ -3,11 +3,17 @@ import userReducer from "./reducers/userReducer";
 
 export const UserContext = createContext(null);
 
+const initialState = {
+  authenticated: false,
+  credentials: {},
+  passed: { js1: false },
+};
+
 const UserProvider = (props) => {
-  const [user, dispatch] = useReducer(userReducer, {});
+  const [state, dispatch] = useReducer(userReducer, initialState);
 
   return (
-    <UserContext.Provider value={{ user, dispatch }}>
+    <UserContext.Provider value={{ state, dispatch }}>
       {props.children}
     </UserContext.Provider>
   );

@@ -99,6 +99,10 @@ exports.getAuthenticatedUser = async (req, res) => {
 
     userData.credentials = doc.data();
 
+    const passedDoc = await db.doc(`/js1/${req.user.handle}`).get();
+
+    userData.js1 = passedDoc.data();
+
     return res.json(userData);
   } catch (err) {
     console.error(err);
