@@ -8,7 +8,7 @@ function Profile() {
   const { user, dispatch } = useContext(UserContext);
   return (
     <div className="ui raised very padded text  segment">
-      {user.handle ? <p>Hi User</p> : <p>Login please</p>}
+      {user.handle ? <p>Hi {user.handle}</p> : <p>Login please</p>}
       <button onClick={() => loginUser(dispatch)}>Login</button>
     </div>
   );

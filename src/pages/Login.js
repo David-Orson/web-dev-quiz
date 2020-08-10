@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { UserContext } from "../contexts/UserContext";
+import { loginUser } from "../contexts/actions/userActions";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { user, dispatch } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
+    loginUser(dispatch, email, password);
   };
   return (
     <div className="ui raised very padded text container segment">
