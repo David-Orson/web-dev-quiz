@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Router } from "@reach/router";
 
-import { UserContext } from "./contexts/UserContext";
+import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 
@@ -25,20 +26,13 @@ const App = () => {
     setAnswers([null, null, null, null, null, null, null, null, null, null]);
   };
 
-  const { user, dispatch } = useContext(UserContext);
-
   return (
     <div className="ui container">
-      <h1>Code Quizzer</h1>
+      <Navbar />
 
-      <div className="ui raised very padded text container segment">
-        {user.handle ? <p>Hi User</p> : <p>Login please</p>}
-        <button onClick={() => dispatch({ type: "LOGIN", handle: "me" })}>
-          Login
-        </button>
-      </div>
       <Router>
         <Home path="/" />
+        <Login path="/login" />
         <Quiz path="/quiz" userAnswers={userAnswers} setAnswers={setAnswers} />
         <Result
           path="/result"
