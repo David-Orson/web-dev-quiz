@@ -1,22 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "@reach/router";
 
-import { UserContext } from "../contexts/UserContext";
-
 const Home = () => {
-  const { user, dispatch } = useContext(UserContext);
-
-  /* const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch({ type: "LOGIN" });
-  }; */
-
   return (
     <div className="ui raised very padded text container segment">
-      <button onClick={() => dispatch({ type: "LOGIN", handle: "me" })}>
-        Login
-      </button>
-      {user.handle ? <p>Hi User</p> : <p>Login please</p>}
       <h3>Welcome to Code Quizzer!</h3>
       <p>
         This is a JavaScript quiz for beginners! Passing Score is 8/10 and the

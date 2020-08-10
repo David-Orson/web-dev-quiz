@@ -4,6 +4,8 @@ const authReducer = (state, action) => {
       return { ...state, handle: action.handle };
     case "LOGOUT":
       return { ...state, handle: false };
+    default:
+      return state;
   }
 };
 
