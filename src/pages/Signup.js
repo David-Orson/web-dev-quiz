@@ -13,7 +13,7 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signupUser(dispatch, email, password);
+    signupUser(dispatch, handle, email, password, confirmPassword);
   };
   return (
     <div className="ui raised very padded text container segment">

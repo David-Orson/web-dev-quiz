@@ -26,6 +26,27 @@ export const getUserData = async (dispatch) => {
   });
 };
 
+export const signupUser = async (
+  dispatch,
+  handle,
+  email,
+  password,
+  confirmPassword
+) => {
+  const res = await axios.post(
+    "https://europe-west1-code-quizzer.cloudfunctions.net/api/signup",
+    {
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+      handle: handle,
+    }
+  );
+  setAuthorizationHeader(res.data.token);
+
+  dispatch(getUserData(dispatch));
+};
+
 const setAuthorizationHeader = (token) => {
   const FBIdToken = `Bearer ${token}`;
   localStorage.setItem("FBIdToken", FBIdToken);
