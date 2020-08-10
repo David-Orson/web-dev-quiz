@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Router } from "@reach/router";
 
-import { UserContext } from "./contexts/UserContext";
+import UserProvider from "./contexts/UserContext";
 
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
@@ -25,12 +25,10 @@ const App = () => {
     setAnswers([null, null, null, null, null, null, null, null, null, null]);
   };
 
-  const [user, setUser] = useState(null);
-
   return (
     <div className="ui container">
       <h1>Code Quizzer</h1>
-      <UserContext.Provider value={{ user, setUser }}>
+      <UserProvider>
         <Router>
           <Home path="/" />
           <Quiz
@@ -44,7 +42,7 @@ const App = () => {
             resetAnswers={resetAnswers}
           />
         </Router>
-      </UserContext.Provider>
+      </UserProvider>
     </div>
   );
 };
