@@ -2,6 +2,12 @@ import { SET_USER } from "../types";
 
 import axios from "axios";
 
+const setAuthorizationHeader = (token) => {
+  const FBIdToken = `Bearer ${token}`;
+  localStorage.setItem("FBIdToken", FBIdToken);
+  axios.defaults.headers.common["Authorization"] = FBIdToken;
+};
+
 export const loginUser = async (dispatch, email, password) => {
   const res = await axios.post(
     "https://europe-west1-code-quizzer.cloudfunctions.net/api/login",
@@ -47,8 +53,6 @@ export const signupUser = async (
   dispatch(getUserData(dispatch));
 };
 
-const setAuthorizationHeader = (token) => {
-  const FBIdToken = `Bearer ${token}`;
-  localStorage.setItem("FBIdToken", FBIdToken);
-  axios.defaults.headers.common["Authorization"] = FBIdToken;
+export const userPassedTest = async () => {
+  axios.post("https://europe-west1-code-quizzer.cloudfunctions.net/api/passed");
 };

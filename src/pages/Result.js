@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "@reach/router";
 
+import { userPassedTest } from "../contexts/actions/userActions";
+
 import { questions, correct } from "../Questions/JSQuestions";
 
 const Result = (props) => {
@@ -21,7 +23,7 @@ const Result = (props) => {
   const score = `${answeredCorrectly} / ${questions.length}`;
 
   if (answeredCorrectly >= 8) {
-    console.log("dispatch");
+    userPassedTest();
   }
 
   console.log(marked);
