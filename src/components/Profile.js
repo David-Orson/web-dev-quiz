@@ -8,7 +8,7 @@ function Profile() {
     <div className="ui raised very padded text  segment">
       {state.authenticated ? (
         <div>
-          <h2>Hi {state.credentials.handle}</h2>
+          <h2>Enjoy the tests</h2>
           {state.js1.passed ? (
             <div>
               <i class="green check square icon"></i>
@@ -23,7 +23,8 @@ function Profile() {
         </div>
       ) : (
         <p>
-          Currently taking the quiz as a guest, login to save your progress.
+          You are currently taking the quiz as a guest, signup/login to save
+          your progress.
         </p>
       )}
     </div>
