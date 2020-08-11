@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "@reach/router";
 
+import { UserContext } from "../contexts/UserContext";
 import { userPassedTest } from "../contexts/actions/userActions";
 
 import { questions, correct } from "../Questions/JSQuestions";
 
 const Result = (props) => {
+  const { state, dispatch } = useContext(UserContext);
+
   let marked = [];
   let index = 0;
   props.userAnswers.forEach((answer) => {
@@ -22,9 +25,13 @@ const Result = (props) => {
 
   const score = `${answeredCorrectly} / ${questions.length}`;
 
-  if (answeredCorrectly >= 8) {
-    userPassedTest();
-  }
+  useEffect(() => {
+    if (state.authenticated) {
+      if (answeredCorrectly >= 8) {
+        userPassedTest(dispatch);
+      }
+    }
+  }, []);
 
   console.log(marked);
 

@@ -6,7 +6,7 @@ export const UserContext = createContext(null);
 const initialState = {
   authenticated: false,
   credentials: {},
-  passed: { js1: false },
+  js1: { passed: false },
 };
 
 const UserProvider = (props) => {

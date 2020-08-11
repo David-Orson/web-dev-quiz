@@ -7,8 +7,11 @@ function Profile() {
   const { state, dispatch } = useContext(UserContext);
   return (
     <div className="ui raised very padded text  segment">
-      {state.credentials.handle ? (
-        <p>Hi {state.handle}</p>
+      {state.authenticated ? (
+        <div>
+          <p>Hi {state.credentials.handle}</p>
+          {state.js1.passed ? <p>Passed Js1!</p> : <p>not yet passed Js1.</p>}
+        </div>
       ) : (
         <p>Login please</p>
       )}

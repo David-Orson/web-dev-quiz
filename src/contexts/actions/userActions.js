@@ -1,4 +1,4 @@
-import { SET_USER } from "../types";
+import { SET_USER, PASSED_TEST } from "../types";
 
 import axios from "axios";
 
@@ -53,6 +53,9 @@ export const signupUser = async (
   dispatch(getUserData(dispatch));
 };
 
-export const userPassedTest = async () => {
+export const userPassedTest = async (dispatch) => {
   axios.post("https://europe-west1-code-quizzer.cloudfunctions.net/api/passed");
+  dispatch({
+    type: PASSED_TEST,
+  });
 };
