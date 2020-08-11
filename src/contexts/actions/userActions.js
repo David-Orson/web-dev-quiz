@@ -1,6 +1,7 @@
-import { SET_USER, PASSED_TEST } from "../types";
-
 import axios from "axios";
+import { navigate } from "@reach/router";
+
+import { SET_USER, PASSED_TEST } from "../types";
 
 const setAuthorizationHeader = (token) => {
   const FBIdToken = `Bearer ${token}`;
@@ -19,6 +20,7 @@ export const loginUser = async (dispatch, email, password) => {
   setAuthorizationHeader(res.data.token);
 
   dispatch(getUserData(dispatch));
+  navigate(`/`);
 };
 
 export const getUserData = async (dispatch) => {
@@ -51,6 +53,7 @@ export const signupUser = async (
   setAuthorizationHeader(res.data.token);
 
   dispatch(getUserData(dispatch));
+  navigate(`/`);
 };
 
 export const userPassedTest = async (dispatch) => {
