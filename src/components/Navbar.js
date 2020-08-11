@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <div>
       <Link to="/">
-        <img src={logo} />
+        <img src={logo} alt="Code Quizzer" />
       </Link>
       {state.authenticated ? null : (
         <div className="ui container">

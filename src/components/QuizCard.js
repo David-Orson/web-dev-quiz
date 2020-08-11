@@ -19,7 +19,7 @@ const QuizCard = (props) => {
     props.setAnswers(newAnswers);
   };
 
-  const { id, q, questionAnswers } = questions[index];
+  const { q, questionAnswers } = questions[index];
 
   const answerArray = Object.values(questionAnswers);
 
