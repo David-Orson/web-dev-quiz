@@ -41,7 +41,7 @@ exports.signup = async (req, res) => {
     token = idToken;
 
     const userCredentials = {
-      handle: newUser.handle,
+      userHandle: newUser.handle,
       email: newUser.email,
       createdAt: new Date().toISOString(),
       userId,
@@ -115,6 +115,7 @@ exports.userPassedTest = async (req, res) => {
     const newPass = {
       userHandle: req.user.handle,
       createdAt: new Date().toISOString(),
+      passed: true,
     };
     db.doc(`/js1/${req.user.handle}`).set(newPass);
     res.json(newPass);
