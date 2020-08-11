@@ -38,7 +38,7 @@ const Result = (props) => {
   console.log(score);
 
   return (
-    <div className="ui raised very padded text container segment">
+    <div className="ui raised very padded text segment">
       <h1>Result</h1>
       <p>Your Score is {score}</p>
 

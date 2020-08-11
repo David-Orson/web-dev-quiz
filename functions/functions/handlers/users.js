@@ -41,7 +41,7 @@ exports.signup = async (req, res) => {
     token = idToken;
 
     const userCredentials = {
-      userHandle: newUser.handle,
+      handle: newUser.handle,
       email: newUser.email,
       createdAt: new Date().toISOString(),
       userId,

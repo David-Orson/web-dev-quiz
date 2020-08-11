@@ -1,21 +1,31 @@
 import React, { useContext } from "react";
 
 import { UserContext } from "../contexts/UserContext";
-import { loginUser } from "../contexts/actions/userActions";
 
 function Profile() {
-  const { state, dispatch } = useContext(UserContext);
+  const { state } = useContext(UserContext);
   return (
     <div className="ui raised very padded text  segment">
       {state.authenticated ? (
         <div>
-          <p>Hi {state.credentials.handle}</p>
-          {state.js1.passed ? <p>Passed Js1!</p> : <p>not yet passed Js1.</p>}
+          <h2>Hi {state.credentials.handle}</h2>
+          {state.js1.passed ? (
+            <div>
+              <i class="green check square icon"></i>
+              <p>You have passed The JavaScript Quiz!</p>
+            </div>
+          ) : (
+            <div>
+              <i class="red times circle icon"></i>
+              <p>not yet passed Js1.</p>
+            </div>
+          )}
         </div>
       ) : (
-        <p>Login please</p>
+        <p>
+          Currently taking the quiz as a guest, login to save your progress.
+        </p>
       )}
-      <button onClick={() => loginUser(dispatch)}>Login</button>
     </div>
   );
 }

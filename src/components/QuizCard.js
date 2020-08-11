@@ -49,10 +49,7 @@ const QuizCard = (props) => {
       ) : null}
 
       {index < questions.length - 1 ? (
-        <button
-          className="ui button yellow"
-          onClick={() => setIndex(index + 1)}
-        >
+        <button className="ui button blue" onClick={() => setIndex(index + 1)}>
           Next
         </button>
       ) : (

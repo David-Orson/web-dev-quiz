@@ -28,20 +28,25 @@ const App = () => {
   };
 
   return (
-    <div className="ui container">
+    <div>
       <Navbar />
-
-      <Router>
-        <Home path="/" />
-        <Login path="/login" />
-        <Signup path="signup" />
-        <Quiz path="/quiz" userAnswers={userAnswers} setAnswers={setAnswers} />
-        <Result
-          path="/result"
-          userAnswers={userAnswers}
-          resetAnswers={resetAnswers}
-        />
-      </Router>
+      <div className="ui container">
+        <Router>
+          <Home path="/" />
+          <Login path="/login" />
+          <Signup path="signup" />
+          <Quiz
+            path="/quiz"
+            userAnswers={userAnswers}
+            setAnswers={setAnswers}
+          />
+          <Result
+            path="/result"
+            userAnswers={userAnswers}
+            resetAnswers={resetAnswers}
+          />
+        </Router>
+      </div>
     </div>
   );
 };

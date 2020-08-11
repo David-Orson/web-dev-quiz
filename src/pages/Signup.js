@@ -16,43 +16,46 @@ function Signup() {
     signupUser(dispatch, handle, email, password, confirmPassword);
   };
   return (
-    <div className="ui raised very padded text container segment">
-      <h2>Login</h2>
-      <div>
-        <label>Username</label>
-        <input
-          type="text"
-          value={handle}
-          onChange={(e) => setHandle(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Email Address</label>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="text"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Confirm Password</label>
-        <input
-          type="text"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-      </div>
-      <button className="ui button blue" onClick={handleSubmit}>
-        login
-      </button>
+    <div className="ui raised very padded text segment">
+      <h1>Signup</h1>
+      <form className="ui form" onSubmit={handleSubmit}>
+        <div className="field">
+          <label>Username</label>
+          <input
+            type="text"
+            value={handle}
+            onChange={(e) => setHandle(e.target.value)}
+          />
+        </div>
+
+        <div className="field">
+          <label>Email Address</label>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="field">
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="field">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+        <button className="ui button blue" type="submit">
+          login
+        </button>
+      </form>
     </div>
   );
 }

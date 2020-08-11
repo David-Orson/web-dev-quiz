@@ -5,7 +5,7 @@ import QuizCard from "../components/QuizCard";
 
 const Quiz = (props) => {
   return (
-    <div className="ui raised very padded text container segment">
+    <div className="ui raised very padded text segment">
       <QuizCard userAnswers={props.userAnswers} setAnswers={props.setAnswers} />
       <br />
       <div className="ui container">
